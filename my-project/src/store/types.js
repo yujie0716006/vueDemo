@@ -1,0 +1,1 @@
+export const ECHARTS_CLICK = 'ECHARTS_CLICK';

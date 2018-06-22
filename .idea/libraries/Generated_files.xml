@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/my-project/config/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/my-project/src/api/server.js" />
+        <item url="file://$PROJECT_DIR$/dist/my-project/src/main.js" />
+        <item url="file://$PROJECT_DIR$/dist/my-project/src/router/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/my-project/src/store/actions.js" />
+        <item url="file://$PROJECT_DIR$/dist/my-project/src/store/getters.js" />
+        <item url="file://$PROJECT_DIR$/dist/my-project/src/store/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/my-project/src/store/mutations.js" />
+        <item url="file://$PROJECT_DIR$/dist/my-project/src/store/types.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/my-project/config/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/my-project/src/api/server.js" />
+      <root url="file://$PROJECT_DIR$/dist/my-project/src/main.js" />
+      <root url="file://$PROJECT_DIR$/dist/my-project/src/router/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/my-project/src/store/actions.js" />
+      <root url="file://$PROJECT_DIR$/dist/my-project/src/store/getters.js" />
+      <root url="file://$PROJECT_DIR$/dist/my-project/src/store/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/my-project/src/store/mutations.js" />
+      <root url="file://$PROJECT_DIR$/dist/my-project/src/store/types.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

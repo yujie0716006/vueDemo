@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../my-project/src/store/types.js"],"names":["ECHARTS_CLICK"],"mappings":";;;;;AAAO,IAAMA,wCAAgB,eAAtB","file":"types.js","sourcesContent":["export const ECHARTS_CLICK = 'ECHARTS_CLICK';\n"]}
