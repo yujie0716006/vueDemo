@@ -3,10 +3,12 @@ import Vuex from 'vuex';
 import actions from './actions'
 import mutations from './mutations'
 import getters from './getters'
+import routerTags from './modules/routerTags';
 
 Vue.use(Vuex);
 const state={
-  isCollapse:false,   // 左侧树展开关闭的按钮
+  isCollapse:false,
+  // isCollapse:!!localStorage.getItem('menuButton') ? !!localStorage.getItem('menuButton') : false,   // 左侧树展开关闭的按钮
   echarts:{     // 首页中的折线图
     clickState:"newVisits",
     "newVisits":{
@@ -26,8 +28,16 @@ const state={
       last:[150,220,500,776,940,438,326],
     }
   },
+  scrollDis:null,  // 页面滚动的距离
+  navMenuPosition:'left',
+  // navMenuPosition:localStorage.getItem('layoutTheme') ? localStorage.getItem('layoutTheme') : 'left',   // 默认的导航条的位置在
+
 };
+
 export default new Vuex.Store({
+  modules:{
+    routerTags
+  },
   state,
   actions,
   mutations,

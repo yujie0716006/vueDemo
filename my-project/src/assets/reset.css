@@ -93,3 +93,8 @@ body {
 div,ul,li,h1,h2,h3{
   box-sizing: border-box;
 }
+.clearFloat:after{
+  display: block;
+  content:'';
+  clear:both;
+}

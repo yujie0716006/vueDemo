@@ -5,13 +5,17 @@ import layout from '@/views/layout';
 import example from '@/views/example/index';
 import dashboard from '@/views/dashboard/dashboard';
 import timeLine from '@/views/timeLine/timeLine';
-import shuttleBox from '@/views/shuttleBox/shuttleBox';
 import tab from '@/views/example/tab/tab';
 import tables from '@/views/example/tables/index';
 import dragTable from '@/views/example/tables/dragTable';
 import dynamicTable from '@/views/example/tables/dynamicTable';
 import editTable from '@/views/example/tables/editTable';
-import synthesisTable from '@/views/example/tables/synthesisTable';
+import showComponents from "@/views/showComponents/index";
+import twoRouterView from "@/views/twoRouterView/index";
+import twoRouter from "@/views/twoRouterView/showRouterView";
+import viewOne from "@/views/twoRouterView/viewOne";
+import viewTwo from "@/views/twoRouterView/viewTwo";
+import viewThree from "@/views/twoRouterView/viewThree";
 
 Vue.use(Router)
 
@@ -63,11 +67,6 @@ export default new Router({
                 component:editTable,
                 name:"编辑表格"
               },
-              {
-                path:'synthesisTable',
-                component:synthesisTable,
-                name:"todoList待办事项"
-              },
             ]
           }
           ]
@@ -79,12 +78,45 @@ export default new Router({
           name:'时间轴'
         },
         {
-          path:'/shuttleBox',
-          component:shuttleBox,
+          path:'/showComponents',
+          component:showComponents,
+          name:'组件展示',
           icon:'icon-shouye',
-          name:'穿梭框'
         },
+        {
+          path:'/twoRouterView',
+          name:'两个视图',
+          icon:'icon-shouye',
+          component:twoRouterView,
+          children:[
+            {
+            path:"twoView",
+            component:twoRouter,
+            name:'视图展示',
+            /*children:[
+              {
+                path:'viewOne',
+                icon:'icon-shouye',
+                component:viewOne,
+              },
+              {
+                path:'viewTwo',
+                icon:'icon-shouye',
+                component:viewThree,
+              },
+              {
+                path:'viewThree',
+                icon:'icon-shouye',
+                components:{
+                  default:viewOne,
+                  'view-right':viewTwo
+                },
+              }
+            ]*/
+          }
+          ]
+        }
       ]
-    }
+    },
   ]
 })

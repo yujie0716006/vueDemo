@@ -27,11 +27,6 @@
     <!--时间轴-->
     <timeLine :location="location"></timeLine>
 
-    <!--穿梭框-->
-    <h1 style="fontSize:20px">穿梭框组件</h1>
-    <div style="margin:50px 0">
-      <shuttleBox v-if="shuttleBoxData" :shuttleBoxData="shuttleBoxData"></shuttleBox>
-    </div>
   </div>
 </template>
 
@@ -41,7 +36,6 @@
   import radarEchart from "./components/radarEchart";
   import roseType from "./components/roseType";
   import timeLine from "../timeLine/timeLine";
-  import shuttleBox from "../shuttleBox/shuttleBox";
   import tabs from "../example/tab/tab";
   import dragTable from "../example/tables/tabsContent";
 
@@ -49,9 +43,8 @@
 
   export default {
     name: "dashboard",
-    components:{cards,echarts,radarEchart,roseType,tabs,dragTable,timeLine,shuttleBox},
+    components:{cards,echarts,radarEchart,roseType,tabs,dragTable,timeLine},
     mounted(){
-      this._initButtleBoxData();
     },
     data() {
       return {
@@ -74,18 +67,10 @@
             locate:"北京的一所大学",
           },
         ],
-        shuttleBoxData:null,
       }
     },
     methods:{
-      _initButtleBoxData(){
-        axios.post('http://192.168.182.85:8083/intelligentAnalysis/dicitemController/queryDicInfoCase?dtname=&pid=')
-          .then(res => {
-            const result=res.data;
-            this.shuttleBoxData=result;
-            console.log("数据",this.shuttleBoxData);
-          })
-      }
+
     }
   }
 </script>

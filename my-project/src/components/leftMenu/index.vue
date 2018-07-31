@@ -1,27 +1,37 @@
 <template>
   <div class="menuWrap">
-    <el-menu :default-active="$route.path" class="el-menu-vertical-demo" :collapse="isCollapse" router >
+    <el-menu :default-active="$route.path" :class="navMode =='vertical' ? 'el-menu-vertical-demo' : 'el-menu-demo'" :collapse="isCollapse" router :mode="navMode">
       <menuItem v-for="(item,index) in router[1].children" :key="index" :item="item"></menuItem>
     </el-menu>
   </div>
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
   import menuItem from "./menuItem"
+  import { mapGetters } from 'vuex';
   export default {
     name: "index",
     mounted(){
       console.log('router',this.router);
     },
+    watch:{
+        navMenuPosition(val){
+        if(val == 'top'){
+          this.navMode='horizontal';
+        }else if(val == 'left'){
+          this.navMode='vertical';
+        }
+      }
+    },
     components:{menuItem},
     data() {
       return {
+        navMode:'vertical',
       }
     },
     computed:{
       ...mapGetters([
-        'isCollapse'
+        'isCollapse','navMenuPosition'
       ]),
       router(){
         return this.$router.options.routes;

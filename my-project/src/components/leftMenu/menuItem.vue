@@ -62,5 +62,25 @@
 .menuItem>.el-submenu>.el-submenu__title>span,.el-menu--inline>.el-menu-item>span{
   padding-left:20px
 }
+  /* 水平方向的导航条的样式*/
+.el-menu--horizontal>.menuItem{
+  float: left;
+}
+.el-menu--horizontal >.menuItem > .el-menu-item.is-active {
+  border-bottom: 2px solid #409EFF;
+  color: #303133
+}
+.el-menu--horizontal>.menuItem>.el-menu-item>span{
+  padding-left:0;
+}
+.el-menu--horizontal>.menuItem>.el-submenu>.el-submenu__title>span, .el-menu--inline>.el-menu-item>span{
+  padding-left:0;
+}
+.el-menu--horizontal >.menuItem > .el-submenu:focus, .el-menu--horizontal >.menuItem > .el-submenu:hover {
+  outline: 0
 
+}
+.el-menu--horizontal > .menuItem > .el-submenu .el-submenu__icon-arrow {
+  right:0;
+}
 </style>

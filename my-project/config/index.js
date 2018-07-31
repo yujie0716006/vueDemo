@@ -56,9 +56,9 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsRoot: path.resolve(__dirname, '../dist'),  // 静态资源的根目录
+    assetsSubDirectory: 'static',   // 静态资源根目录的子目录
+    assetsPublicPath: './',  // 静态资源的公开路径，也就是真正引用路径
 
     /**
      * Source Maps

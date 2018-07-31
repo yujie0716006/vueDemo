@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style>
-  @import '//at.alicdn.com/t/font_605147_pjnmiddlcrawz5mi.css';
+  @import '//at.alicdn.com/t/font_588444_cmqb8lgrtc.css';
 #app{
   width:100%;
   height:100%;
