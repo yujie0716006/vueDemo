@@ -16,7 +16,7 @@
 
 <script>
   export default {
-    name: "index",
+    name: "theme-color",
     watch:{
       changeColor(val){
         this.toggleClass(document.body,`custom-${val}`);

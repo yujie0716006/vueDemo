@@ -30,7 +30,7 @@
 <script>
   import BScroll from 'better-scroll';
   export default {
-    name: "index",
+    name: "router-tags",
     mounted(){
       this.initTagsDivWidth= this.$refs.tagsWrap.offsetWidth;
       this.initScrollDivWidth= this.$refs.tagsWidth.offsetWidth;
@@ -40,8 +40,12 @@
       this.getScrollWidth();
 
       this.$nextTick(()=> {
+        const getPath= this.$refs[this.$route.path];
           this._initBScroll();
-          this.initScroll.scrollToElement(this.$refs[this.$route.path][0].$attrs.id);
+          console.log('sssss',this.$refs[this.$route.path]);
+          if(getPath){
+            this.initScroll.scrollToElement(getPath[0].$attrs.id);
+          }
       });
     },
     watch:{

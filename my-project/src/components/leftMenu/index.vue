@@ -10,7 +10,7 @@
   import menuItem from "./menuItem"
   import { mapGetters } from 'vuex';
   export default {
-    name: "index",
+    name: "left-menu",
     mounted(){
       console.log('router',this.router);
     },

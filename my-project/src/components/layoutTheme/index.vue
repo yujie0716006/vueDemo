@@ -16,7 +16,7 @@
 <script>
   import {mapGetters} from 'vuex';
   export default {
-    name: "index",
+    name: "layout-theme",
     data() {
       return {
         layoutTheme:[{

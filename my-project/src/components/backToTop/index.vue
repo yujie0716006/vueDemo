@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "index",
+    name: "back-to-top",
     props:{
       scrollDis:Number
     },

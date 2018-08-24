@@ -16,12 +16,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var routerTags = {
   state: {
-    tagsArray: sessionStorage.getItem('tagsRouter') ? JSON.parse(sessionStorage.getItem('tagsRouter')) : [{ tagName: '首页', tagPath: '/dashboard', isClear: false }] // 路由导航的数据
+    tagsArray: sessionStorage.getItem('tagsRouter') ? JSON.parse(sessionStorage.getItem('tagsRouter')) : [{ tagName: '首页', tagPath: '/dashboard', isClear: false }], // 路由导航的数据
+    tagsRouterName: []
   },
   mutations: (_mutations = {}, (0, _defineProperty3.default)(_mutations, _types.ADD_TAGS_ROUTER, function (state, _ref) {
     var addTag = _ref.addTag;
 
     state.tagsArray.push(addTag);
+    state.tagsRouterName.push(addTag.tagName);
   }), (0, _defineProperty3.default)(_mutations, _types.FILTER_ALL_TAGSROUTER, function (state, routers) {
     state.tagsArray.splice(state.tagsArray.indexOf(routers), 1);
   }), _mutations),

@@ -1,26 +1,35 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import layout from '@/views/layout';
-import example from '@/views/example/index';
-import dashboard from '@/views/dashboard/dashboard';
-import timeLine from '@/views/timeLine/timeLine';
-import tab from '@/views/example/tab/tab';
-import tables from '@/views/example/tables/index';
-import dragTable from '@/views/example/tables/dragTable';
-import dynamicTable from '@/views/example/tables/dynamicTable';
-import editTable from '@/views/example/tables/editTable';
-import showComponents from "@/views/showComponents/index";
-import twoRouterView from "@/views/twoRouterView/index";
-import twoRouter from "@/views/twoRouterView/showRouterView";
-import viewOne from "@/views/twoRouterView/viewOne";
-import viewTwo from "@/views/twoRouterView/viewTwo";
-import viewThree from "@/views/twoRouterView/viewThree";
+const layout = () => import('@/views/layout');
+const example = () => import('@/views/example/index');
+const dashboard = () => import('@/views/dashboard/dashboard');
+const timeLine = () => import('@/views/timeLine/timeLine');
+const tab = () => import('@/views/example/tab/tab');
+const tables = () => import('@/views/example/tables/index');
+const dragTable = () => import('@/views/example/tables/dragTable');
+const dynamicTable = () => import('@/views/example/tables/dynamicTable');
+const editTable = () => import('@/views/example/tables/editTable');
+const showComponents = () => import('@/views/showComponents/index');
+const twoRouterView = () => import('@/views/twoRouterView/index');
+const twoRouter = () => import('@/views/twoRouterView/showRouterView');
+const stickyDemo = () => import('@/views/stickyDemo');
+const excelView = () => import('@/views/excel');
+const exportExcel = () => import('@/views/excel/exportExcel');
+const exportSelected = () => import('@/views/excel/exportSelected');
+const promiseDemo = () => import('@/views/promiseDemo');
+const routerDemo = () => import('@/views/routerDemo');
+const about = () => import('@/views/routerDemo/components/about');
+const home = () => import('@/views/routerDemo/components/home');
+const message = () => import('@/views/routerDemo/components/message');
+const messageDetail = () => import('@/views/routerDemo/components/messageDetail');
 
 Vue.use(Router)
 
 
 export default new Router({
+  // 给激活的路由增加样式
+  routerLinkActive:'active',
   routes:[
     {
       path: '/',
@@ -114,6 +123,67 @@ export default new Router({
               }
             ]*/
           }
+          ]
+        },
+        {
+          path:"/stickyDemo",
+          component:stickyDemo,
+          name:'吸附在任意位置（未做完）',
+          icon:'icon-shouye'
+        },
+        {
+          path:'/excelViews',
+          name:'excel',
+          component:excelView,
+          icon:'icon-shouye',
+          children:[
+            {
+              path:'exportExcel',
+              name:'export excel',
+              component:exportExcel,
+            },
+            {
+              path:'exportSelected',
+              name:'export selected',
+              component:exportSelected,
+            },
+            {
+              path:'promiseDemo',
+              name:'promise',
+              component:promiseDemo
+            }
+          ]
+        },
+        {
+          path:'/routerDemo',
+          name:'路由例子',
+          icon:'icon-shouye',
+          component:routerDemo,
+          children:[
+            {
+              path:'home',
+              component:home,
+              name:'home'
+            },
+            {
+              path:'about',
+              component:about,
+              name:'about',
+              children:[
+                {
+                  path:'messageshow',
+                  component:message,
+                  name:'message',
+                  children:[
+                    {
+                      path:'messageDetail/:id',
+                      name:'messageDetail',
+                      component:messageDetail
+                    }
+                  ]
+                }
+              ]
+            },
           ]
         }
       ]

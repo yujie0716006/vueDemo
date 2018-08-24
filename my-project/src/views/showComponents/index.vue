@@ -33,6 +33,21 @@
     <!--button按钮-->
     <el-button icon="icon iconfont icon-renyuan" size="small">按钮</el-button>
 
+    <!--上传图片的组件-->
+    <h1 style="margin:15px;fontSize:20px">图片上传</h1>
+    <div>
+      <upload></upload>
+    </div>
+
+    <!--批量上传图片-->
+    <h1 style="margin:15px;fontSize:20px">批量上传图片</h1>
+    <batchUpload batchUrl="https://httpbin.org/post"></batchUpload>
+
+    <!--记事本-->
+    <h1 style="margin:15px;fontSize:20px">记事本</h1>
+    <div class="note-component">
+      <noteBook></noteBook>
+    </div>
 
 
   </div>
@@ -45,9 +60,12 @@
   import picZoom from "vue-piczoom";
   import backToTop from '@/components/backToTop';
   import layoutTheme from '@/components/layoutTheme';
+  import upload from '@/views/upload';
+  import batchUpload from '@/components/batchUpload/batchUpload';
+  import noteBook from '@/components/noteBook/noteBook';
   export default {
-    name: "index",
-    components:{picZoom,imgZoom,backToTop,layoutTheme},
+    name: "show-components",
+    components:{picZoom,imgZoom,backToTop,layoutTheme,upload,batchUpload,noteBook},
     data() {
       return {
         configs: {   // 中间放大镜的设置和大图显示的大小
@@ -59,7 +77,7 @@
           maskOpacity:0.2
         },
         scrollDis:null,  // 页面滚动的距离
-        scrollName:'this.$refs.backTo'
+        scrollName:'this.$refs.backTo',
       }
     },
     methods:{
@@ -83,4 +101,8 @@
   height 100%
   overflow-y auto
   padding-left 20px
+  .note-component
+    width 400px
+    height 300px
+
 </style>

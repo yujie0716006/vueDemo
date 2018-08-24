@@ -11,9 +11,9 @@
           </div>
         </topTitle>
       </el-header>
-      <el-main>
-        <router-view></router-view>
-      </el-main>
+        <el-main><!--
+          --><router-view></router-view>
+        </el-main>
     </el-container>
   </el-container>
 </template>
@@ -31,7 +31,10 @@
     computed:{
       ...mapGetters([
         'navMenuPosition'
-      ])
+      ]),
+     /* tagsRouterName(){
+        return this.$store.state.routerTags.tagsRouterName;
+      }*/
     }
   }
 </script>
@@ -55,6 +58,8 @@
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 .el-container
   height 100%
+  .el-aside
+    overflow-x hidden !important
   .el-header
     height 95px !important
     padding 0 !important
