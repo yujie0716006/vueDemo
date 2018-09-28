@@ -12,7 +12,7 @@
   export default {
     name: "left-menu",
     mounted(){
-      console.log('router',this.router);
+      console.log('routerqqqqq',this.router);
     },
     watch:{
         navMenuPosition(val){

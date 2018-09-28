@@ -16,6 +16,7 @@
       clickTitleData:Object
     },
     mounted(){
+      console.log('clickTitleData',this.clickTitleData);
       console.log("dragTable",this.clickTitleData.clickTitleData);
     },
     data() {

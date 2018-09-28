@@ -34,6 +34,7 @@
     <el-button icon="icon iconfont icon-renyuan" size="small">按钮</el-button>
 
     <!--上传图片的组件-->
+
     <h1 style="margin:15px;fontSize:20px">图片上传</h1>
     <div>
       <upload></upload>
@@ -49,7 +50,23 @@
       <noteBook></noteBook>
     </div>
 
+<!-- 测试的数据-->
+    <div>
+      <span :title="message">鼠标一上去会有titile提示</span>
+    </div>
 
+    <!--测试数组-->
+    <div>
+      <p>arr的值为：{{arr}}</p>
+      <el-button @click="changeArr">changeArr</el-button>
+      <p>修改后的arr值为：{{arr}}</p>
+    </div>
+    <div style="margin:20px 0">
+      <ul>
+        遍历循环数组中的数据
+        <li v-for="(number,index) in eventNumber" :key="index">{{number}}</li>
+      </ul>
+    </div>
   </div>
 
 </template>
@@ -66,6 +83,9 @@
   export default {
     name: "show-components",
     components:{picZoom,imgZoom,backToTop,layoutTheme,upload,batchUpload,noteBook},
+    mounted(){
+      console.log('路由的内容：',this.$route);
+    },
     data() {
       return {
         configs: {   // 中间放大镜的设置和大图显示的大小
@@ -78,6 +98,16 @@
         },
         scrollDis:null,  // 页面滚动的距离
         scrollName:'this.$refs.backTo',
+        message:'显示的数据'+['sssss',44444,55555555].toLocaleString(),
+        arr:[1,2,3,3,4,5,6],
+        numbers:[1,2,3,4,5,6,7,8,9],
+      }
+    },
+    computed:{
+      eventNumber(){
+        return this.numbers.filter(number => {
+          return number % 2 === 0;
+        })
       }
     },
     methods:{
@@ -90,6 +120,11 @@
           behavior:'smooth',
         });
         console.log('复函数触发了么');
+      },
+      changeArr(){
+        console.log('changeArr函数触发');
+        // this.arr[0] = '修改的值';
+        this.arr.splice(0,1,'修改数组中的内容')
       },
     },
   }

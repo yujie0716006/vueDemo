@@ -27,5 +27,7 @@ exports.default = (_ECHARTS_CLICK$THEME_ = {}, (0, _defineProperty3.default)(_EC
   var isCollapse = _ref3.isCollapse;
 
   state.isCollapse = isCollapse;
+}), (0, _defineProperty3.default)(_ECHARTS_CLICK$THEME_, _types.SET_LANGUAGE, function (state, languageValue) {
+  state.language = languageValue;
 }), _ECHARTS_CLICK$THEME_);
 //# sourceMappingURL=mutations.js.map

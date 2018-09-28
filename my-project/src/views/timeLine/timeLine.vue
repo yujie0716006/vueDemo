@@ -1,17 +1,23 @@
 <template>
-  <div class="timeLine">
-    <div class="fourLine" v-for="n in 4" :style="{'margin-left':n*5+'px'}"></div>
-    <div class="locationWrap">
-      <div class="locationLine"></div>
-      <div class="location-name" v-for="(item,index) in location" :key="index">
-        <div class="location-time">{{item.time}}</div>
-        <div class="circle">
-          <div class="circle-inner"></div>
+  <div>
+    <div class="timeLine">
+      <div class="fourLine" v-for="n in 4" :style="{'margin-left':n*5+'px'}"></div>
+      <div class="locationWrap">
+        <div class="locationLine"></div>
+        <div class="location-name" v-for="(item,index) in location" :key="index">
+          <div class="location-time">{{item.time}}</div>
+          <div class="circle">
+            <div class="circle-inner"></div>
+          </div>
+          <div class="locate-name">{{item.locate}}</div>
         </div>
-        <div class="locate-name">{{item.locate}}</div>
       </div>
+      <div class="fourLineRight" v-for="n in 4" :style="{'margin-right':n*5+'px'}"></div>
     </div>
-    <div class="fourLineRight" v-for="n in 4" :style="{'margin-right':n*5+'px'}"></div>
+    <div>
+      姓名为：{{num}}
+    </div>
+    <el-button @click="handleChange">改名字</el-button>
   </div>
 </template>
 
@@ -19,11 +25,18 @@
   export default {
     name: "time-line",
     props:{
-      location:Array
+      location:Array,
+      username:String,
     },
     data() {
       return {
-
+        num:this.username,
+      }
+    },
+    methods:{
+      handleChange(){
+        this.num = '花花';
+        console.log('sssssssss',this.num,this.username);
       }
     }
   }

@@ -25,7 +25,16 @@
     </el-row>
 
     <!--时间轴-->
-    <timeLine :location="location"></timeLine>
+    <timeLine :location="location" :username="username"></timeLine>
+
+    <div class="input-class">
+      <el-input>请输入内容</el-input>
+      <el-select>
+        <el-option>
+          显示内容
+        </el-option>
+      </el-select>
+    </div>
 
   </div>
 </template>
@@ -67,6 +76,7 @@
             locate:"北京的一所大学",
           },
         ],
+        username:'小明',
       }
     },
     methods:{
@@ -84,4 +94,7 @@
     .echartWrap
       height 350px
       margin-bottom 70px
+    .input-class
+      width 300px
+      height 15px
 </style>

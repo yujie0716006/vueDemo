@@ -80,6 +80,12 @@ var message = function message() {
 var messageDetail = function messageDetail() {
   return import('@/views/routerDemo/components/messageDetail');
 };
+var zipDownload = function zipDownload() {
+  return import('@/views/excel/zip');
+};
+var i18n = function i18n() {
+  return import('@/views/i18n');
+};
 
 _vue2.default.use(_vueRouter2.default);
 
@@ -92,57 +98,69 @@ exports.default = new _vueRouter2.default({
   }, {
     path: '/layout',
     component: layout,
+    name: 'layout',
     children: [{
       path: '/dashboard',
       component: dashboard,
       icon: 'icon-shouye',
-      name: '首页'
+      name: '首页',
+      meta: { routerList: true }
     }, {
       path: '/example',
       component: example,
       name: '综合实力',
       icon: 'icon-shouye',
+      meta: { routerList: true },
       children: [{
         path: 'tab',
         component: tab,
-        name: "tab"
+        name: "tab",
+        meta: { routerList: true }
       }, {
         path: '/example/tables',
         component: tables,
         name: '小实例',
+        meta: { routerList: true },
         children: [{
           path: 'dragTable',
           component: dragTable,
-          name: "拖拽表格"
+          name: "拖拽表格",
+          meta: { routerList: true }
         }, {
           path: 'dynamicTable',
           component: dynamicTable,
-          name: "动态表格"
+          name: "动态表格",
+          meta: { routerList: true }
         }, {
           path: 'editTable',
           component: editTable,
-          name: "编辑表格"
+          name: "编辑表格",
+          meta: { routerList: true }
         }]
       }]
     }, {
       path: '/timeline',
       component: timeLine,
       icon: 'icon-shouye',
-      name: '时间轴'
+      name: '时间轴',
+      meta: { routerList: true }
     }, {
       path: '/showComponents',
       component: showComponents,
       name: '组件展示',
-      icon: 'icon-shouye'
+      icon: 'icon-shouye',
+      meta: { routerList: true }
     }, {
       path: '/twoRouterView',
       name: '两个视图',
       icon: 'icon-shouye',
       component: twoRouterView,
+      meta: { routerList: true },
       children: [{
         path: "twoView",
         component: twoRouter,
-        name: '视图展示'
+        name: '视图展示',
+        meta: { routerList: true }
         /*children:[
           {
             path:'viewOne',
@@ -168,49 +186,68 @@ exports.default = new _vueRouter2.default({
       path: "/stickyDemo",
       component: stickyDemo,
       name: '吸附在任意位置（未做完）',
-      icon: 'icon-shouye'
+      icon: 'icon-shouye',
+      meta: { routerList: true }
     }, {
       path: '/excelViews',
       name: 'excel',
       component: excelView,
       icon: 'icon-shouye',
+      meta: { routerList: true },
       children: [{
         path: 'exportExcel',
         name: 'export excel',
-        component: exportExcel
+        component: exportExcel,
+        meta: { routerList: true }
       }, {
         path: 'exportSelected',
         name: 'export selected',
-        component: exportSelected
+        component: exportSelected,
+        meta: { routerList: true }
       }, {
         path: 'promiseDemo',
         name: 'promise',
-        component: promiseDemo
+        component: promiseDemo,
+        meta: { routerList: true }
+      }, {
+        path: 'zip',
+        name: 'zip',
+        component: zipDownload
       }]
     }, {
       path: '/routerDemo',
       name: '路由例子',
       icon: 'icon-shouye',
       component: routerDemo,
+      meta: { routerList: true },
       children: [{
         path: 'home',
         component: home,
-        name: 'home'
+        name: 'home',
+        meta: { routerList: true }
       }, {
         path: 'about',
         component: about,
         name: 'about',
+        meta: { routerList: false },
         children: [{
           path: 'messageshow',
           component: message,
           name: 'message',
+          meta: { routerList: false },
           children: [{
             path: 'messageDetail/:id',
             name: 'messageDetail',
-            component: messageDetail
+            component: messageDetail,
+            meta: { routerList: false }
           }]
         }]
       }]
+    }, {
+      path: '/i18n',
+      name: '国际化',
+      icon: 'icon-shouye',
+      component: i18n
     }]
   }]
 });

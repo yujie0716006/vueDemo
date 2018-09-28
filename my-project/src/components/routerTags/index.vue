@@ -84,9 +84,7 @@
         const onlyFlag= this.tagsArray.some(item => {
           return item.tagPath == tagObj.tagPath
         });
-        if(onlyFlag){
-          return
-        }else{
+        if(!onlyFlag){
           this.$store.dispatch('addTagsRouter',tagObj);
           sessionStorage.setItem('tagsRouter',JSON.stringify(this.tagsArray));
         }

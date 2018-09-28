@@ -14,9 +14,8 @@ const routerTags = {
     [FILTER_ALL_TAGSROUTER](state,routers){
       state.tagsArray.splice(state.tagsArray.indexOf(routers),1);
     },
-
   },
-
+ 
   actions:{
     // 增加路由导航
     addTagsRouter({commit},addTag){

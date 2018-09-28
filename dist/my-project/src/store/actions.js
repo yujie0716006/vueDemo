@@ -27,6 +27,14 @@ exports.default = {
     var commit = _ref3.commit;
 
     commit(_types.MENU_CLOSE_OPEN, { isCollapse: isCollapse });
+  },
+
+
+  //  修改国际化语言
+  changeLanguage: function changeLanguage(_ref4, languageValue) {
+    var commit = _ref4.commit;
+
+    commit(_types.SET_LANGUAGE, languageValue);
   }
 }; // action.js   这个js中的文件都是用来执行操作，来调用mutations简介改变状态了
 //# sourceMappingURL=actions.js.map

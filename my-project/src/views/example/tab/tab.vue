@@ -7,6 +7,7 @@
         </el-tab-pane>
       </template>
     </el-tabs>
+
 </template>
 
 <script>
@@ -14,6 +15,9 @@
     name: "tab",
     props:{
       tabsTitles:Array
+    },
+    mounted(){
+
     },
     data() {
       return {
@@ -23,7 +27,6 @@
     },
     methods: {
       handleClick(tab, event) {
-        console.log(tab, event);
         this.clickData=tab.label;
       }
     }

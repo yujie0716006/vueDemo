@@ -5,6 +5,8 @@
   "author": "yujie <yujie@ultrpower.com.cn>",
   "private": true,
   "scripts": {
+
+
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
@@ -21,12 +23,14 @@
     "gulp-clean-css": "^3.9.4",
     "gulp-css-wrap": "^0.1.2",
     "js-cookie": "^2.2.0",
+    "jszip": "^3.1.5",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
     "screenfull": "^3.3.2",
     "script-loader": "^0.7.2",
     "sortablejs": "^1.7.0",
     "vue": "^2.5.2",
+    "vue-i18n": "^8.1.0",
     "vue-image-crop-upload": "^2.3.3",
     "vue-piczoom": "^1.0.6",
     "vue-router": "^3.0.1",

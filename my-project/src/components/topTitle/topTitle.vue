@@ -2,6 +2,9 @@
   <div class="top-wrap">
     <div class="top">
       <img src="./images/button.png" alt="开关" @click="closeOrOpen" :class='{imgRotate:isCollapse}' v-show="navMenuPosition == 'left'">
+      <div class="breadcrumb-wrap">
+        <breadCrumb></breadCrumb>
+      </div>
       <slot name="topNavMenu"></slot>
       <div class="screenFull">
         <screenFull></screenFull>
@@ -20,11 +23,12 @@
   import screenFull from '@/components/screenFull/screenFull';
   import themeColor from '@/components/themeColor';
   import routerTags from '@/components/routerTags';
+  import breadCrumb from '@/components/breadCrumb';
 
   import {mapGetters} from 'vuex';
   export default {
     name: "top-title",
-    components:{screenFull,themeColor,routerTags},
+    components:{screenFull,themeColor,routerTags,breadCrumb},
     data() {
       return {}
     },
@@ -66,6 +70,8 @@
         margin-right 10px
         vertical-align bottom
         cursor pointer
+      .breadcrumb-wrap
+        display inline-block
       .imgRotate
         transform rotate(90deg)
         transition transform 0.3s

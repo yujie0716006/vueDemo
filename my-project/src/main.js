@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import store from './store'
+import vueI18n from 'vue-i18n';
 
 import './assets/reset.css';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -17,6 +18,15 @@ import './assets/theme/purple/index.css';
 import './assets/theme/blue/index.css';
 import './assets/theme/red/index.css';*/
 Vue.use(ElementUI);
+Vue.use(vueI18n);
+
+const i18n = new vueI18n({
+  locale:navigator.language,
+  messages:{
+    'zh-CN':require('@/common/lang/zh-CN'),
+    'en':require('@/common/lang/en')
+  }
+});
 
 
 Vue.config.productionTip = false
@@ -26,6 +36,7 @@ new Vue({
   el: '#app',
   router,
   store,
+  i18n,
   components: { App },
   template: '<App/>'
 })
