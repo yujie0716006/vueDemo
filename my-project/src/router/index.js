@@ -25,189 +25,170 @@ const message = () => import('@/views/routerDemo/components/message');
 const messageDetail = () => import('@/views/routerDemo/components/messageDetail');
 const zipDownload = () => import('@/views/excel/zip');
 const i18n = () => import('@/views/i18n');
+const VueGrammar = () => import('@/views/VueGrammar/VueGrammar')
+const VueMixins = () => import('@/views/VueGrammar/VueMixins')
 
 Vue.use(Router)
 
 
 export default new Router({
   // 给激活的路由增加样式
-  routerLinkActive:'active',
-  routes:[
+  routerLinkActive: 'active',
+  routes: [
     {
       path: '/',
-      redirect: '/layout'
+      redirect: '/vue_grammar/vue_mixins'
     },
     {
       path: '/layout',
       component: layout,
-      name:'layout',
-      children:[
+      name: 'layout',
+      children: [
         {
-          path:'/dashboard',
-          component:dashboard,
-          icon:'icon-shouye',
-          name:'首页',
-          meta:{routerList:true},
+          path: '/dashboard',
+          component: dashboard,
+          icon: 'icon-shouye',
+          name: '首页',
         },
         {
-          path:'/example',
-          component:example,
-          name:'综合实力',
-          icon:'icon-shouye',
-          meta:{routerList:true},
-          children:[
+          path: '/example',
+          component: example,
+          name: '综合实力',
+          icon: 'icon-shouye',
+          children: [
             {
-              path:'tab',
-              component:tab,
-              name:"tab",
-              meta:{routerList:true},
+              path: 'tab',
+              component: tab,
+              name: "tab",
             },
             {
-            path:'/example/tables',
-            component:tables,
-            name:'小实例',
-            meta:{routerList:true},
-            children:[
-              {
-                path:'dragTable',
-                component:dragTable,
-                name:"拖拽表格",
-                meta:{routerList:true},
-              },
-              {
-                path:'dynamicTable',
-                component:dynamicTable,
-                name:"动态表格",
-                meta:{routerList:true},
-              },
-              {
-                path:'editTable',
-                component:editTable,
-                name:"编辑表格",
-                meta:{routerList:true},
-              },
-            ]
-          }
-          ]
-        },
-        {
-          path:'/timeline',
-          component:timeLine,
-          icon:'icon-shouye',
-          name:'时间轴',
-          meta:{routerList:true},
-        },
-        {
-          path:'/showComponents',
-          component:showComponents,
-          name:'组件展示',
-          icon:'icon-shouye',
-          meta:{routerList:true},
-        },
-        {
-          path:'/twoRouterView',
-          name:'两个视图',
-          icon:'icon-shouye',
-          component:twoRouterView,
-          meta:{routerList:true},
-          children:[
-            {
-            path:"twoView",
-            component:twoRouter,
-            name:'视图展示',
-            meta:{routerList:true},
-            /*children:[
-              {
-                path:'viewOne',
-                icon:'icon-shouye',
-                component:viewOne,
-              },
-              {
-                path:'viewTwo',
-                icon:'icon-shouye',
-                component:viewThree,
-              },
-              {
-                path:'viewThree',
-                icon:'icon-shouye',
-                components:{
-                  default:viewOne,
-                  'view-right':viewTwo
+              path: '/example/tables',
+              component: tables,
+              name: '小实例',
+              children: [
+                {
+                  path: 'dragTable',
+                  component: dragTable,
+                  name: "拖拽表格",
                 },
-              }
-            ]*/
-          }
-          ]
-        },
-        {
-          path:"/stickyDemo",
-          component:stickyDemo,
-          name:'吸附在任意位置（未做完）',
-          icon:'icon-shouye',
-          meta:{routerList:true},
-        },
-        {
-          path:'/excelViews',
-          name:'excel',
-          component:excelView,
-          icon:'icon-shouye',
-          meta:{routerList:true},
-          children:[
-            {
-              path:'exportExcel',
-              name:'export excel',
-              component:exportExcel,
-              meta:{routerList:true},
-            },
-            {
-              path:'exportSelected',
-              name:'export selected',
-              component:exportSelected,
-              meta:{routerList:true},
-            },
-            {
-              path:'promiseDemo',
-              name:'promise',
-              component:promiseDemo,
-              meta:{routerList:true},
-            },
-            {
-              path:'zip',
-              name:'zip',
-              component:zipDownload,
+                {
+                  path: 'dynamicTable',
+                  component: dynamicTable,
+                  name: "动态表格",
+                },
+                {
+                  path: 'editTable',
+                  component: editTable,
+                  name: "编辑表格",
+                },
+              ]
             }
           ]
         },
         {
-          path:'/routerDemo',
-          name:'路由例子',
-          icon:'icon-shouye',
-          component:routerDemo,
-          meta:{routerList:true},
-          children:[
+          path: '/timeline',
+          component: timeLine,
+          icon: 'icon-shouye',
+          name: '时间轴',
+        },
+        {
+          path: '/showComponents',
+          component: showComponents,
+          name: '组件展示',
+          icon: 'icon-shouye',
+        },
+        {
+          path: '/twoRouterView',
+          name: '两个视图',
+          icon: 'icon-shouye',
+          component: twoRouterView,
+          children: [
             {
-              path:'home',
-              component:home,
-              name:'home',
-              meta:{routerList:true},
+              path: "twoView",
+              component: twoRouter,
+              name: '视图展示',
+              /*children:[
+                {
+                  path:'viewOne',
+                  icon:'icon-shouye',
+                  component:viewOne,
+                },
+                {
+                  path:'viewTwo',
+                  icon:'icon-shouye',
+                  component:viewThree,
+                },
+                {
+                  path:'viewThree',
+                  icon:'icon-shouye',
+                  components:{
+                    default:viewOne,
+                    'view-right':viewTwo
+                  },
+                }
+              ]*/
+            }
+          ]
+        },
+        {
+          path: "/stickyDemo",
+          component: stickyDemo,
+          name: '吸附在任意位置（未做完）',
+          icon: 'icon-shouye',
+        },
+        {
+          path: '/excelViews',
+          name: 'excel',
+          component: excelView,
+          icon: 'icon-shouye',
+          children: [
+            {
+              path: 'exportExcel',
+              name: 'export excel',
+              component: exportExcel,
             },
             {
-              path:'about',
-              component:about,
-              name:'about',
-              meta:{routerList:false},
-              children:[
+              path: 'exportSelected',
+              name: 'export selected',
+              component: exportSelected,
+            },
+            {
+              path: 'promiseDemo',
+              name: 'promise',
+              component: promiseDemo,
+            },
+            {
+              path: 'zip',
+              name: 'zip',
+              component: zipDownload,
+            }
+          ]
+        },
+        {
+          path: '/routerDemo',
+          name: '路由例子',
+          icon: 'icon-shouye',
+          component: routerDemo,
+          children: [
+            {
+              path: 'home',
+              component: home,
+              name: 'home',
+            },
+            {
+              path: 'about',
+              component: about,
+              name: 'about',
+              children: [
                 {
-                  path:'messageshow',
-                  component:message,
-                  name:'message',
-                  meta:{routerList:false},
-                  children:[
+                  path: 'messageshow',
+                  component: message,
+                  name: 'message',
+                  children: [
                     {
-                      path:'messageDetail/:id',
-                      name:'messageDetail',
-                      component:messageDetail,
-                      meta:{routerList:false},
+                      path: 'messageDetail/:id',
+                      name: 'messageDetail',
+                      component: messageDetail,
                     }
                   ]
                 }
@@ -215,11 +196,24 @@ export default new Router({
             },
           ]
         },
-         {
-          path:'/i18n',
-          name:'国际化',
-          icon:'icon-shouye',
-          component:i18n,
+        {
+          path: '/i18n',
+          name: '国际化',
+          icon: 'icon-shouye',
+          component: i18n,
+        },
+        {
+          path: '/vue_grammar',
+          name: 'vue语法',
+          icon: 'icon-shouye',
+          component: VueGrammar,
+          children: [
+            {
+              path: 'vue_mixins',
+              name: 'mixins',
+              component: VueMixins
+            }
+          ]
         }
       ]
     },
