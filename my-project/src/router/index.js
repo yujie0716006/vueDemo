@@ -2,19 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 const layout = () => import('@/views/layout');
-const example = () => import('@/views/example/index');
 const dashboard = () => import('@/views/dashboard/dashboard');
 const timeLine = () => import('@/views/timeLine/timeLine');
 const tab = () => import('@/views/example/tab/tab');
-const tables = () => import('@/views/example/tables/index');
 const dragTable = () => import('@/views/example/tables/dragTable');
 const dynamicTable = () => import('@/views/example/tables/dynamicTable');
 const editTable = () => import('@/views/example/tables/editTable');
 const showComponents = () => import('@/views/showComponents/index');
-const twoRouterView = () => import('@/views/twoRouterView/index');
-const twoRouter = () => import('@/views/twoRouterView/showRouterView');
 const stickyDemo = () => import('@/views/stickyDemo');
-const excelView = () => import('@/views/excel');
 const exportExcel = () => import('@/views/excel/exportExcel');
 const exportSelected = () => import('@/views/excel/exportSelected');
 const promiseDemo = () => import('@/views/promiseDemo');
@@ -25,10 +20,24 @@ const message = () => import('@/views/routerDemo/components/message');
 const messageDetail = () => import('@/views/routerDemo/components/messageDetail');
 const zipDownload = () => import('@/views/excel/zip');
 const i18n = () => import('@/views/i18n');
-const VueGrammar = () => import('@/views/VueGrammar/VueGrammar')
 const VueMixins = () => import('@/views/VueGrammar/VueMixins')
 
 Vue.use(Router)
+
+/*路由数组里面的对象是这种类型的
+*     {
+      path: '/',
+      component: layout, // 最外面的layout表示每次都是通过他来显示右边展示去的内容的，他的子元素就表示导航的层级
+      children: [
+        {
+          path: '/dashboard',
+          component: dashboard,
+          icon: 'icon-shouye',
+          name: '首页',
+        }
+      ]
+    }
+* */
 
 
 export default new Router({
@@ -37,185 +46,235 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/vue_grammar/vue_mixins'
-    },
-    {
-      path: '/layout',
       component: layout,
-      name: 'layout',
+      redirect: '/dashboard',
       children: [
         {
           path: '/dashboard',
           component: dashboard,
-          icon: 'icon-shouye',
-          name: '首页',
+          name: 'dashboard',
+          meta: {
+            icon: 'icon-shouye',
+            title: 'dashboard'
+          }
+        }
+      ]
+    },
+    {
+      path: '/example',
+      component: layout,
+      name: 'example',
+      redirect: '/example/tab',
+      meta: {
+        icon: 'icon-shouye',
+        title: '综合实例'
+      },
+      children: [
+        {
+          path: 'tab',
+          component: tab,
+          name: "tab",
+          meta: {
+            title: 'tab'
+          }
         },
         {
-          path: '/example',
-          component: example,
-          name: '综合实力',
-          icon: 'icon-shouye',
+          path: 'example/tables',
+          component: layout,
+          name: 'tables',
+          redirect: '/example/tables/dragTable',
+          meta: {
+            title: '小实例'
+          },
           children: [
             {
-              path: 'tab',
-              component: tab,
-              name: "tab",
+              path: 'dragTable',
+              component: dragTable,
+              name: "dragTable",
+              meta: {
+                title: '拖拽表格'
+              }
             },
             {
-              path: '/example/tables',
-              component: tables,
-              name: '小实例',
-              children: [
-                {
-                  path: 'dragTable',
-                  component: dragTable,
-                  name: "拖拽表格",
-                },
-                {
-                  path: 'dynamicTable',
-                  component: dynamicTable,
-                  name: "动态表格",
-                },
-                {
-                  path: 'editTable',
-                  component: editTable,
-                  name: "编辑表格",
-                },
-              ]
-            }
-          ]
-        },
-        {
-          path: '/timeline',
-          component: timeLine,
-          icon: 'icon-shouye',
-          name: '时间轴',
-        },
-        {
-          path: '/showComponents',
-          component: showComponents,
-          name: '组件展示',
-          icon: 'icon-shouye',
-        },
-        {
-          path: '/twoRouterView',
-          name: '两个视图',
-          icon: 'icon-shouye',
-          component: twoRouterView,
-          children: [
-            {
-              path: "twoView",
-              component: twoRouter,
-              name: '视图展示',
-              /*children:[
-                {
-                  path:'viewOne',
-                  icon:'icon-shouye',
-                  component:viewOne,
-                },
-                {
-                  path:'viewTwo',
-                  icon:'icon-shouye',
-                  component:viewThree,
-                },
-                {
-                  path:'viewThree',
-                  icon:'icon-shouye',
-                  components:{
-                    default:viewOne,
-                    'view-right':viewTwo
-                  },
-                }
-              ]*/
-            }
-          ]
-        },
-        {
-          path: "/stickyDemo",
-          component: stickyDemo,
-          name: '吸附在任意位置（未做完）',
-          icon: 'icon-shouye',
-        },
-        {
-          path: '/excelViews',
-          name: 'excel',
-          component: excelView,
-          icon: 'icon-shouye',
-          children: [
-            {
-              path: 'exportExcel',
-              name: 'export excel',
-              component: exportExcel,
+              path: 'dynamicTable',
+              component: dynamicTable,
+              name: "dynamicTable",
+              meta: {
+                title: '动态表格'
+              }
             },
             {
-              path: 'exportSelected',
-              name: 'export selected',
-              component: exportSelected,
+              path: 'editTable',
+              component: editTable,
+              name: "editTable",
+              meta: {
+                title: '编辑表格'
+              }
             },
-            {
-              path: 'promiseDemo',
-              name: 'promise',
-              component: promiseDemo,
-            },
-            {
-              path: 'zip',
-              name: 'zip',
-              component: zipDownload,
-            }
-          ]
-        },
-        {
-          path: '/routerDemo',
-          name: '路由例子',
-          icon: 'icon-shouye',
-          component: routerDemo,
-          children: [
-            {
-              path: 'home',
-              component: home,
-              name: 'home',
-            },
-            {
-              path: 'about',
-              component: about,
-              name: 'about',
-              children: [
-                {
-                  path: 'messageshow',
-                  component: message,
-                  name: 'message',
-                  children: [
-                    {
-                      path: 'messageDetail/:id',
-                      name: 'messageDetail',
-                      component: messageDetail,
-                    }
-                  ]
-                }
-              ]
-            },
-          ]
-        },
-        {
-          path: '/i18n',
-          name: '国际化',
-          icon: 'icon-shouye',
-          component: i18n,
-        },
-        {
-          path: '/vue_grammar',
-          name: 'vue语法',
-          icon: 'icon-shouye',
-          component: VueGrammar,
-          children: [
-            {
-              path: 'vue_mixins',
-              name: 'mixins',
-              component: VueMixins
-            }
           ]
         }
       ]
     },
+    {
+      path: '/timeline',
+      component: layout,
+      children: [
+        {
+          path: 'index',
+          component: timeLine,
+          name: 'timeLine',
+          meta: {
+            icon: 'icon-shouye',
+            title: '时间轴',
+          }
+        }
+      ]
+    },
+    {
+      path: '/showComponents',
+      component: layout,
+      children: [
+        {
+          path: 'index',
+          component: showComponents,
+          name: 'showComponents',
+          meta: {
+            title: '组件展示',
+            icon: 'icon-shouye',
+          }
+        }
+      ]
+    },
+    {
+      path: "/showComponents",
+      component: stickyDemo,
+      children: [
+        {
+          path: "stickyDemo",
+          component: stickyDemo,
+          name: 'stickDemo',
+          meta: {
+            title: '吸附在任意位置（未做完）',
+            icon: 'icon-shouye',
+          }
+        }
+      ]
+    },
+    {
+      path: '/excelViews',
+      name: 'excelViews',
+      component: layout,
+      meta: {
+        icon: 'icon-shouye',
+        title: 'excel'
+      },
+      redirect: '/excelViews/exportExcel',
+      children: [
+        {
+          path: 'exportExcel',
+          name: 'exportExcel',
+          component: exportExcel,
+          meta: {
+            title: 'export excel'
+          }
+        },
+        {
+          path: 'exportSelected',
+          name: 'exportSelected',
+          component: exportSelected,
+          meta: {
+            title: 'export selected',
+          }
+        },
+        {
+          path: 'promiseDemo',
+          name: 'promiseDemo',
+          component: promiseDemo,
+          meta: {
+            title: 'promise',
+          }
+        },
+        {
+          path: 'zip',
+          name: 'zip',
+          component: zipDownload,
+          meta: {
+            title: 'zip',
+          }
+        }
+      ]
+    },
+    {
+      path: '/routerDemo',
+      name: 'routerDemo',
+      component: routerDemo,
+      meta: {
+        title: '路由例子',
+        icon: 'icon-shouye',
+      },
+      redirect: '/routerDemo/home',
+      children: [
+        {
+          path: 'home',
+          component: home,
+          name: 'home',
+          meta: {title: 'home'}
+        },
+        {
+          path: 'about',
+          component: about,
+          name: 'about',
+          meta: {title: 'about'},
+          children: [
+            {
+              path: 'messageshow',
+              component: message,
+              name: 'message',
+              meta: {title: 'message'},
+              children: [
+                {
+                  path: 'messageDetail/:id',
+                  name: 'messageDetail',
+                  component: messageDetail,
+                  meta: {title: 'messageDetail'}
+                }
+              ]
+            }
+          ]
+        },
+      ]
+    },
+    {
+      path: '/i18n',
+      component: layout,
+      children: [
+        {
+          path: 'index',
+          component: i18n,
+          name: 'i18n',
+          meta: {
+            title: '国际化',
+            icon: 'icon-shouye',
+          },
+        }
+      ]
+    },
+    {
+      path: '/vue_grammar',
+      component: layout,
+      name: 'vueGrammar',
+      meta: {
+        title: 'vue语法',
+        icon: 'icon-shouye',
+      },
+      children: [
+        {
+          path: 'vue_mixins',
+          name: 'mixins',
+          component: VueMixins,
+          meta: {title: 'mixins'}
+        }
+      ]
+    }
   ]
 })

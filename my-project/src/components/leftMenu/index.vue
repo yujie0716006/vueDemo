@@ -1,7 +1,7 @@
 <template>
   <div class="menuWrap">
     <el-menu :default-active="$route.path" :class="navMode =='vertical' ? 'el-menu-vertical-demo' : 'el-menu-demo'" :collapse="isCollapse" router :mode="navMode">
-      <menuItem v-for="(item,index) in router[1].children" :key="index" :item="item"></menuItem>
+      <menuItem v-for="(item,index) in router" :key="index" :item="item"></menuItem>
     </el-menu>
   </div>
 </template>
@@ -12,7 +12,7 @@
   export default {
     name: "left-menu",
     mounted(){
-      console.log('routerqqqqq',this.router);
+      console.log('现在的路由列表',this.router);
     },
     watch:{
         navMenuPosition(val){
