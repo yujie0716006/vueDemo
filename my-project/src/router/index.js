@@ -178,7 +178,7 @@ export default new Router({
           component: exportExcel,
           meta: {
             title: 'export excel'
-          }
+          },
         },
         {
           path: 'exportSelected',
@@ -210,7 +210,7 @@ export default new Router({
       path: '/routerDemo',
       name: 'routerDemo',
       component: layout,
-      redirect: '/routerDemo/home',
+      redirect: '/routerDemo/index',
       children: [
         {
           path: 'index',

@@ -20,7 +20,7 @@
 <script>
   import Sortable from "sortablejs";
   export default {
-    name: "drag-table",
+    name: "dragTable",
     components:{Sortable},
     mounted(){
       this._initTable();

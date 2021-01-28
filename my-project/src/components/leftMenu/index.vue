@@ -12,7 +12,6 @@
   export default {
     name: "left-menu",
     mounted(){
-      console.log('现在的路由列表',this.router);
     },
     watch:{
         navMenuPosition(val){

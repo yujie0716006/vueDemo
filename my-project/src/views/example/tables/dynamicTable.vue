@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "dynamic-table",
+    name: "dynamicTable",
     data() {
       return {}
     }

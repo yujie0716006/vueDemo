@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    name: "drag-table",
+    name: "tabsContent",
     props:{
       clickTitleData:Object
     },

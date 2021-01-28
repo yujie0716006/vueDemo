@@ -20,6 +20,8 @@ import './assets/theme/red/index.css';*/
 Vue.use(ElementUI);
 Vue.use(vueI18n);
 
+Vue.config.devtools = true
+
 const i18n = new vueI18n({
   locale:navigator.language,
   messages:{

@@ -40,6 +40,7 @@
 <script>
   import Sortable from 'sortablejs';
   export default {
+    name: 'editTable',
     components:{Sortable},
     mounted(){
       this._initTable();

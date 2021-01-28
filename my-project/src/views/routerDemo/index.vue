@@ -1,8 +1,8 @@
 <template>
   <div>
     <div>
-      <router-link to="/routerDemo/home">home按钮</router-link>
-      <router-link to="/routerDemo/about">about按钮</router-link>
+      <router-link to="/routerDemo/index/home">home按钮</router-link>
+      <router-link to="/routerDemo/index/about">about按钮</router-link>
   </div>
     <div>
       下面为router-view内容展示
