@@ -1,7 +1,7 @@
 <template>
   <div class="menuWrap">
     <el-menu :default-active="$route.path" :class="navMode =='vertical' ? 'el-menu-vertical-demo' : 'el-menu-demo'" :collapse="isCollapse" router :mode="navMode">
-      <menuItem v-for="(item,index) in router" :key="index" :item="item"></menuItem>
+      <menu-item v-for="(item,index) in router" :key="index" :item="item" :base-path="item.path"></menu-item>
     </el-menu>
   </div>
 </template>
