@@ -14,10 +14,6 @@
       </div>
       <div class="fourLineRight" v-for="n in 4" :style="{'margin-right':n*5+'px'}"></div>
     </div>
-    <div>
-      姓名为：{{num}}
-    </div>
-    <el-button @click="handleChange">改名字</el-button>
   </div>
 </template>
 
@@ -33,12 +29,6 @@
         num:this.username,
       }
     },
-    methods:{
-      handleChange(){
-        this.num = '花花';
-        console.log('sssssssss',this.num,this.username);
-      }
-    }
   }
 </script>
 

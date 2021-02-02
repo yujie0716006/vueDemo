@@ -3,8 +3,6 @@ import Router from 'vue-router'
 
 const layout = () => import('@/views/layout');
 const dashboard = () => import('@/views/dashboard/dashboard');
-const timeLine = () => import('@/views/timeLine/timeLine');
-const tab = () => import('@/views/example/tab/tab');
 const dragTable = () => import('@/views/example/tables/dragTable');
 const tables = () => import('@/views/example/tables/tables');
 const dynamicTable = () => import('@/views/example/tables/dynamicTable');
@@ -29,7 +27,7 @@ Vue.use(Router)
 /*路由数组里面的对象是这种类型的
 *     {
       path: '/', // 路径
-      component: layout, // 最外面的layout表示每次都是通过他来显示右边展示去的内容的，他的子元素就表示导航的层级
+      component: layout, // 最外面的layout表示每次都是通过他来显示右边展示区的内容的，他的子元素就表示导航的层级
       alwaysShow: true, // 当设置为true的时候表示，这个菜单一直显示在根目录上
       hidden: true, // 表示隐藏这个菜单目录
       children: [
@@ -49,7 +47,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/vue_grammar/vue_mixins'
+      redirect: '/vue_grammar/vue_mixins',
+      hidden: true
     },
     {
       path: '/',
@@ -70,20 +69,13 @@ export default new Router({
     {
       path: '/example',
       component: layout,
-      redirect: '/example/tab',
+      redirect: '/example/tables/dragTable',
+      alwaysShow: true,
       meta: {
         icon: 'icon-shouye',
         title: '综合实例'
       },
       children: [
-        {
-          path: 'tab',
-          component: tab,
-          name: "tab",
-          meta: {
-            title: 'tab'
-          }
-        },
         {
           path: 'tables',
           component: tables,
@@ -118,21 +110,6 @@ export default new Router({
               }
             },
           ]
-        }
-      ]
-    },
-    {
-      path: '/timeline',
-      component: layout,
-      children: [
-        {
-          path: 'index',
-          component: timeLine,
-          name: 'timeLine',
-          meta: {
-            icon: 'icon-shouye',
-            title: '时间轴',
-          }
         }
       ]
     },

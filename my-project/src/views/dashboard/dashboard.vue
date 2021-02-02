@@ -18,23 +18,14 @@
     <h1 style="fontSize:20px">tabs组件</h1>
     <el-row>
       <tabs :tabsTitles="tabsData">
-         <template slot-scope="clickTitleData">
-           <dragTable :clickTitleData="clickTitleData"></dragTable>
-         </template>
+        <template slot-scope="clickTitleData">
+          <dragTable :clickTitleData="clickTitleData"></dragTable>
+        </template>
       </tabs>
     </el-row>
 
     <!--时间轴-->
     <timeLine :location="location" :username="username"></timeLine>
-
-    <div class="input-class">
-      <el-input>请输入内容</el-input>
-      <el-select>
-        <el-option>
-          显示内容
-        </el-option>
-      </el-select>
-    </div>
 
   </div>
 </template>
@@ -44,44 +35,46 @@
   import echarts from "./components/echarts";
   import radarEchart from "./components/radarEchart";
   import roseType from "./components/roseType";
-  import timeLine from "../timeLine/timeLine";
-  import tabs from "../example/tab/tab";
+  import timeLine from "../../components/timeLine/timeLine";
+  import tabs from "../../components/tab/tab";
   import dragTable from "../example/tables/tabsContent";
 
   import axios from "axios"
 
   export default {
     name: "dashboard",
-    components:{cards,echarts,radarEchart,roseType,tabs,dragTable,timeLine},
-    mounted(){
+    components: {cards, echarts, radarEchart, roseType, tabs, dragTable, timeLine},
+    mounted() {
     },
     data() {
       return {
-        tabsData:['用户管理','配置管理','角色管理','定时任务补偿'],
-        location:[
+        tabsData: ['用户管理', '配置管理', '角色管理', '定时任务补偿'],
+        location: [
           {
-            time:'2017-3-24 14:45:10',
-            locate:"传媒大学",
+            time: '2017-3-24 14:45:10',
+            locate: "传媒大学",
           },
           {
-            time:'2017-3-24',
-            locate:"传媒学",
+            time: '2017-3-24',
+            locate: "传媒学",
           },
           {
-            time:'2017-3-24 14:45:10',
-            locate:"这是什么大学",
+            time: '2017-3-24 14:45:10',
+            locate: "这是什么大学",
           },
           {
-            time:'2017-3-24',
-            locate:"北京的一所大学",
+            time: '2017-3-24',
+            locate: "北京的一所大学",
+          },
+          {
+            time: '2021-02-02',
+            locate: "重新开始",
           },
         ],
-        username:'小明',
+        username: '小明',
       }
     },
-    methods:{
-
-    }
+    methods: {}
   }
 </script>
 
@@ -91,9 +84,11 @@
     height 100%
     background-color #EFF1F4
     overflow-y auto
+
     .echartWrap
       height 350px
       margin-bottom 70px
+
     .input-class
       width 300px
       height 15px
