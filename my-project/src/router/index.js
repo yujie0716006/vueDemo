@@ -21,7 +21,7 @@ const message = () => import('@/views/routerDemo/components/message');
 const messageDetail = () => import('@/views/routerDemo/components/messageDetail');
 const zipDownload = () => import('@/views/excel/zip');
 const i18n = () => import('@/views/i18n');
-const VueMixins = () => import('@/views/VueGrammar/VueMixins')
+const VueMixins = () => import('@/views/VueGrammar/VueMixins/VueMixins')
 
 Vue.use(Router)
 
@@ -47,6 +47,10 @@ export default new Router({
   // 给激活的路由增加样式
   routerLinkActive: 'active',
   routes: [
+    {
+      path: '/',
+      redirect: '/vue_grammar/vue_mixins'
+    },
     {
       path: '/',
       component: layout,
