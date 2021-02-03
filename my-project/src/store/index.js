@@ -29,8 +29,7 @@ const state={
     }
   },
   scrollDis:null,  // 页面滚动的距离
-  navMenuPosition:'left',
-  // navMenuPosition:localStorage.getItem('layoutTheme') ? localStorage.getItem('layoutTheme') : 'left',   // 默认的导航条的位置在
+  navMenuPosition:sessionStorage.getItem('navMenuPosition') ? sessionStorage.getItem('navMenuPosition') : 'left',   // 默认的导航条的位置在
   // 首先判断是否存在这个值，若存在则使用，如没有则使用后面的值
   language:localStorage.getItem('languageValue') || navigator.language
 };

@@ -9,6 +9,7 @@ export default{
 // 修改主题的布局
   [THEME_LAYOUT](state,{layoutPosition}){
     state.navMenuPosition=layoutPosition;
+    sessionStorage.setItem('navMenuPosition', layoutPosition)
   },
 
 // 左侧树的收缩与展示

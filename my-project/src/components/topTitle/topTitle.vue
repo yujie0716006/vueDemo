@@ -2,7 +2,7 @@
   <div class="top-wrap">
     <div class="top">
       <img src="./images/button.png" alt="开关" @click="closeOrOpen" :class='{imgRotate:isCollapse}' v-show="navMenuPosition == 'left'">
-      <div class="breadcrumb-wrap">
+      <div class="breadcrumb-wrap" v-if="breadCrumbShow">
         <breadCrumb></breadCrumb>
       </div>
       <slot name="topNavMenu"></slot>
@@ -32,6 +32,9 @@
     data() {
       return {}
     },
+    mounted() {
+
+    },
     computed:{
       isCollapse:{
         get: function(){
@@ -44,7 +47,10 @@
       },
       ...mapGetters([
         'navMenuPosition'
-      ])
+      ]),
+      breadCrumbShow() {
+        return this.$store.state.navMenuPosition === 'top' ? false : true
+      }
     },
     methods:{
       closeOrOpen(){

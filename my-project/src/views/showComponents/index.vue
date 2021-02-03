@@ -1,13 +1,9 @@
 <template>
   <div ref="backTo" class="back" @scroll="handleScroll">
     <!--图片放大器-->
-    <div>
+    <div style="margin-bottom: 30px">
       <h1 style="margin:15px;fontSize:20px">图片放大镜(放大图有差异)</h1>
       <imgZoom :src="'static/images/01.jpg'" :width="'400'" :height="'250'" :bigsrc="'static/images/01.jpg'" :configs="configs"></imgZoom>
-      <h1 style="margin:15px;fontSize:20px" >图片放大镜(不稳定)</h1>
-      <div style="width:500px;height:350px">
-        <picZoom url="static/images/01.jpg" bigUrl='static/images/01.jpg' :scale="3"></picZoom>
-      </div>
     </div>
 
     <!--返回顶部-->

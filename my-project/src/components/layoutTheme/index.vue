@@ -45,10 +45,8 @@
         }
         if(location == '上下布局'){
           this.$store.dispatch('changeTheme','top');
-          localStorage.setItem('layoutTheme','top');
         }else if(location == '左右布局'){
           this.$store.dispatch('changeTheme','left');
-          localStorage.setItem('layoutTheme','left');
         }
       },
     },
