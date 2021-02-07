@@ -15,13 +15,22 @@
     props:{
       clickTitleData:Object
     },
+    watch: {
+      clickTitleData: {
+        handler: function(data) {
+          console.log('每次变的时候，都是响应了4次。')
+          console.log('clickTitleData', data.clickTitleData)
+        },
+        deep: true
+      }
+    },
     mounted(){
       console.log('clickTitleData',this.clickTitleData);
       console.log("dragTable",this.clickTitleData.clickTitleData);
     },
     data() {
       return {
-        first:"初始化",
+        first:"tabContent初始化数据",
       }
     }
   }

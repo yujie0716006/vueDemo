@@ -27,7 +27,7 @@
     },
     methods: {
       handleClick(tab, event) {
-        this.clickData=tab.label;
+        this.clickData=`${tab.label}切换tab后，展示在tab面板中的内容${this.num}`;
       }
     }
   }

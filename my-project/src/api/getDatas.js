@@ -5,3 +5,8 @@ export const promiseOne = () => {
 export const promiseTwo = () => {
   return server.get('/sysm/users/selectAll.json');
 }
+
+// 获取到的模拟数据
+export const tableDataApi = () => {
+  return server.get('/edit_table_data')
+}

@@ -22,11 +22,15 @@ Vue.use(vueI18n);
 
 Vue.config.devtools = true
 
+// 在使用mock的时候，要是用require同步引入(node引入)否则会报错，需要将所有的mock文件的引入都引入到main.js文件中，这样全局才可以使用
+require('../mockData/index')
+
+
 const i18n = new vueI18n({
-  locale:navigator.language,
-  messages:{
-    'zh-CN':require('@/common/lang/zh-CN'),
-    'en':require('@/common/lang/en')
+  locale: navigator.language,
+  messages: {
+    'zh-CN': require('@/common/lang/zh-CN'),
+    'en': require('@/common/lang/en')
   }
 });
 
@@ -39,6 +43,6 @@ new Vue({
   router,
   store,
   i18n,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })
