@@ -6,13 +6,22 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev:dev": "cross-env NODE_ENV=development env_config=dev webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev:test": "cross-env NODE_ENV=test env_config=test webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev:pre": "cross-env NODE_ENV=pretest env_config=pre webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev:prod": "cross-env NODE_ENV=production env_config=prod webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "build:dev":"cross-env NODE_ENV=development dev_config=dev node build/build.js",
+    "build:test":"cross-env NODE_ENV=test dev_config=test node build/build.js",
+    "build:pre":"cross-env NODE_ENV=pretest dev_config=pre node build/build.js",
+    "build:prod":"cross-env NODE_ENV=production dev_config=prod node build/build.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "better-scroll": "^1.12.4",
+    "cross-env": "^7.0.3",
     "dropzone": "^5.5.1",
     "echarts": "^4.1.0",
     "element-ui": "^2.4.0",

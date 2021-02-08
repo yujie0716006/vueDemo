@@ -3,6 +3,7 @@ require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
 
+
 const ora = require('ora')
 const rm = require('rimraf')
 const path = require('path')
@@ -11,7 +12,9 @@ const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
 
-const spinner = ora('building for production...')
+// 从此打包的环境不一样，所以这里也需要改一下
+// const spinner = ora('building for production...')
+const spinner = ora('building for '+ process.env.NODE_ENV + 'of' + process.env.env_config + 'mode...')
 spinner.start()
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {

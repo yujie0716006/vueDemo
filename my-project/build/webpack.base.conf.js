@@ -4,6 +4,18 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
+// 获取当前运行的是哪个开发环境
+const env = process.env.NODE_ENV
+
+// 输出的路径的函数
+function publicPathFun() {
+  if ((env === 'production') || (env === 'test') || (env === 'development') || (env === 'pretest')) {
+    return config.build.assetsPublicPath
+  } else {
+    return config.dev.assetsPublicPath
+  }
+}
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -27,9 +39,10 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
+    /*publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+      : config.dev.assetsPublicPath*/
+    publicPath: publicPathFun()
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

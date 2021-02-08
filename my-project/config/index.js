@@ -53,6 +53,12 @@ module.exports = {
   },
 
   build: {
+    // 根据不同的命令行，去修改不同的开发环境，执行不同的环境
+    testEnv: require('./test.env'), // 开发环境
+    devEnv: require('./dev.env'), // 测试环境
+    preEnv: require('./pre.env'), // 预发环境
+    prodEnv: require('./prod.env'), // 生产环境
+
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
 
