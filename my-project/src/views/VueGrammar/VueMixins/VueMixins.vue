@@ -3,6 +3,7 @@
     <div>我是vue语法中的mixins</div>
     <div>{{this.message}}</div>
     <div>computed属性</div>
+    <div>测试每次修改的那个文件打包后，他的hash值会改变，每次会引用新的hash值，但是其他没有修改的文件的引用都不会改变</div>
     <div>
       <span>{{this.text}}</span>
       <span>{{this.name}}</span>

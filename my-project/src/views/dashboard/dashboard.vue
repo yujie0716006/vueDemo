@@ -3,6 +3,9 @@
     <!--卡片组件-->
     <cards></cards>
 
+<!--    我是分割线-->
+    <Divider></Divider>
+
     <!--echarts组件-->
     <echarts></echarts>
     <el-row class="echartWrap">
@@ -38,12 +41,13 @@
   import timeLine from "../../components/timeLine/timeLine";
   import tabs from "../../components/tab/tab";
   import dragTable from "../example/tables/tabsContent";
+  import Divider from '../../components/Divider/Divider'
 
   import axios from "axios"
 
   export default {
     name: "dashboard",
-    components: {cards, echarts, radarEchart, roseType, tabs, dragTable, timeLine},
+    components: {cards, echarts, radarEchart, roseType, tabs, dragTable, timeLine, Divider},
     mounted() {
     },
     data() {

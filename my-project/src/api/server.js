@@ -1,5 +1,5 @@
 import axios from "axios";
-
+console.log('地址的值', process.env)
 const request = axios.create({
   // process.env值为开发环境development和生产环境production，打包不同走的环境不同，但是都是获取当前那个文件的路径
   baseURL: process.env.BASE_URL,
