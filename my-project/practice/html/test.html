@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>
+  <p>
+    <span></span>
+    <input type="text">
+    <i></i>
+  </p>
+</div>
+</body>
+<script type='text/javascript'>
+  (function getTags () {
+    var list1 = document.getElementsByTagName("*"); //ES5语法，返回HTMLCollection
+    var list2 = document.querySelectorAll("*"); //ES6语法，返回nodeList
+    console.log('list1', list1)
+    console.log('list2', list2)
+    var tags = Array.prototype.slice.call(list1)
+    console.log(tags.map(function (item) {
+      return item.tagName.toLowerCase()
+    }))
+
+  })()
+</script>
+</html>

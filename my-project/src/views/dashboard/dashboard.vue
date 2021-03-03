@@ -3,7 +3,7 @@
     <!--卡片组件-->
     <cards></cards>
 
-<!--    我是分割线-->
+    <!--    我是分割线-->
     <Divider></Divider>
 
     <!--echarts组件-->
@@ -28,7 +28,7 @@
     </el-row>
 
     <!--时间轴-->
-    <timeLine :location="location" :username="username"></timeLine>
+    <timeLine :location="location" :username="username" v-bind="$props"></timeLine>
 
   </div>
 </template>

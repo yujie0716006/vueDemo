@@ -20,6 +20,8 @@ const messageDetail = () => import('@/views/routerDemo/components/messageDetail'
 const zipDownload = () => import('@/views/excel/zip');
 const i18n = () => import('@/views/i18n');
 const VueMixins = () => import('@/views/VueGrammar/VueMixins/VueMixins')
+const ParentLifeCycle = () => import('@/views/VueGrammar/ParentLifeCycle/ParentLifeCycle')
+const Practice = () => import('@/views/Practice/Practice')
 
 Vue.use(Router)
 
@@ -40,15 +42,29 @@ Vue.use(Router)
     }
 * */
 
-
-export default new Router({
+const router = new Router({
   // 给激活的路由增加样式
   routerLinkActive: 'active',
   routes: [
     {
       path: '/',
-      redirect: '/vue_grammar/vue_mixins',
+      redirect: '/practice',
       hidden: true
+    },
+    {
+      path: '/practice',
+      component: layout,
+      children: [
+        {
+          path: '',
+          component: Practice,
+          name: 'practice',
+          meta: {
+            icon: 'icon-shouye',
+            title: '练习'
+          }
+        }
+      ]
     },
     {
       path: '/',
@@ -264,8 +280,28 @@ export default new Router({
           name: 'mixins',
           component: VueMixins,
           meta: {title: 'mixins'}
+        },
+        {
+          path: 'life_cycle',
+          name: 'parentLifeCycle',
+          component: ParentLifeCycle,
+          meta: {
+            title: '父子生命周期调用顺序'
+          }
         }
       ]
     }
   ]
 })
+
+// 全局前置路由导航，每当路由变化时，都会调用
+router.beforeEach((to, from, next) => {
+  if (to.meta && to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
+
+export default router
+
+

@@ -24,6 +24,9 @@
       location:Array,
       username:String,
     },
+    mounted() {
+      console.log('获取到了全部的props', this.props, this.$props)
+    },
     data() {
       return {
         num:this.username,
