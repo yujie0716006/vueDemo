@@ -1,21 +1,6 @@
-const list = [
-  {
-    name: 'sss',
-    age: 12,
-    address: '是颠三倒四'
-  },
-  {
-    name: 'sdf',
-    age: 11212,
-    address: '是否'
-  },{
-    name: 'ouoiu',
-    age: 1212,
-    address: '地方'
-  },
-]
+// 写一个函数去除两边的空字符串
 
-const arr = list.map(item => {
-   return 'woshisosoo' + item.name
-})
-console.log('arr', arr)
+const str = '   姓名  是多少    '
+
+console.log('啥事', str)
+console.log('内容', str.replace(/(^\s*)|(\s*$)/g, ''))

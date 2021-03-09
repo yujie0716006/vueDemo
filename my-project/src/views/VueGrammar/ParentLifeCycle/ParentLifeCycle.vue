@@ -4,7 +4,7 @@
     <div>点击改变后的名字-{{name}}</div>
     <div class="button" @click="changeName">点击改变父组件名字</div>
     <keep-alive>
-      <son-life-cycle></son-life-cycle>
+      <son-life-cycle :address="address"></son-life-cycle>
     </keep-alive>
   </div>
 </template>
@@ -16,7 +16,8 @@
     components: {sonLifeCycle},
     data() {
       return {
-        name: '小明'
+        name: '小明',
+        address: '地址'
       }
     },
     beforeCreate() {

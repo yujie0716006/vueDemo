@@ -9,6 +9,12 @@
 <script>
   export default {
     name: "SonLifeCycle",
+    props: {
+      address: {
+        type: String,
+        default: () => ''
+      }
+    },
     data() {
       return {
         name: '子组件'
