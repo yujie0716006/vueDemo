@@ -42,7 +42,7 @@
       this.$nextTick(()=> {
         const getPath= this.$refs[this.$route.path];
           this._initBScroll();
-          console.log('sssss',this.$refs[this.$route.path]);
+          // console.log('sssss',this.$refs[this.$route.path]);
           if(getPath){
             this.initScroll.scrollToElement(getPath[0].$attrs.id);
           }

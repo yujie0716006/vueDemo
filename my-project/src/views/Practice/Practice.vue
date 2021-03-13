@@ -33,4 +33,27 @@
     transform-origin: 0 0;
     transform: scale(0.5);
   }
+  @keyframes divColorAnimation {
+    from {
+      background-color: #3a8ee6;
+      left 0
+      top 0
+    }
+    to {
+      background-color #4f2280;
+      left 200px
+      top 200px
+    }
+  }
+/*  .border {
+    position: relative // 要开启相对定位
+    animation: divColorAnimation;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-timing-function linear;
+    animation-fill-mode backwards
+    !*将一个动画重复的播放就是：重复的一直循环执行，然后再设置执行的顺序*!
+    animation-iteration-count infinite
+    animation-direction alternate
+  }*/
 </style>

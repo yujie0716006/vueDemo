@@ -22,6 +22,7 @@ const i18n = () => import('@/views/i18n');
 const VueMixins = () => import('@/views/VueGrammar/VueMixins/VueMixins')
 const ParentLifeCycle = () => import('@/views/VueGrammar/ParentLifeCycle/ParentLifeCycle')
 const Practice = () => import('@/views/Practice/Practice')
+const CustomEvent = () => import(/* webpackChunkName: "CustomEvent" */ '@/views/VueGrammar/CustomEvent/CustomEvent')
 
 Vue.use(Router)
 
@@ -287,6 +288,14 @@ const router = new Router({
           component: ParentLifeCycle,
           meta: {
             title: '父子生命周期调用顺序'
+          }
+        },
+        {
+          path: 'custom_event',
+          name: 'customEvent',
+          component: CustomEvent,
+          meta: {
+            title: 'vue自定义事件'
           }
         }
       ]
