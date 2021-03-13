@@ -44,6 +44,7 @@
 
 <style lang='stylus' rel='stylesheet/stylus' scoped>
 .custom-event {
+  padding: 10px 30px;
   div, span, input {
     margin: 8px 0;
   }
